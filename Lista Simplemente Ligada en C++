@@ -1,0 +1,51 @@
+/*Esta es mi primero clase para crear una lista simplente ligada en el programa de C++
+ *esta clase solo permite agregar datos y mostrar el valor, para poder eliminar un dato de una lista con punteros 
+ * la mostraré un otra clase siempre del lenguuaje de C++*/
+
+class ListaSimple{
+  private:
+    class nodo{
+      public:
+        int dato; //esta lista solo pide datos que serán de tipo entero y solo es un dato
+        nodo *sig; //este es el puntero que apuntara al siguiente dato
+     }
+     
+     nodo *aux, *nuevo, *tope;
+     
+ public:
+    listaSimple();
+    void insertar_dato(int valor);
+    void mostrar_lista();
+}
+
+
+ListaSimple::ListaSimple(){
+  aux = NULL; nuevo = NULL; tope = NULL;
+}
+
+void ListaSimple::insertar_dato(int valor){
+ nuevo = new nodo();
+ nuevo->dato = valor;
+ nuevo->sig = NULL;
+ if(tope == NULL){
+    tope = nuevo;
+    nuevo = NULL;
+ }else{
+    tope->sig = nuevo;
+    nuevo = tope;
+    nuevo = null;
+ }
+
+void ListaSimple::mostrar_lista(){
+  if(tope == NULL){
+       cout<<"Error la lista esta vacía"<<endl;
+  }else{
+       cout<<"\nTope"<<endl;
+       cout<<"|"<<endl;
+       for(aux = tope; aux!=NULL; aux = aux->sig){
+            if(aux->sig==NULL){
+              cout<<aux->dato<<endl;
+            }else{
+              cout<<aux->dato<<"--->";
+            }
+       }
